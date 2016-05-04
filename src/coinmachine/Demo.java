@@ -10,12 +10,12 @@ public class Demo {
 	// create a java.util.Scanner object for use in all methods
 	private static Scanner console = new Scanner( System.in );
 	
-	
 	/** run the user interface */
 	public void insertDialog(CoinMachine machine) {
 		System.out.println("Coin Machine has a capacity of "+ machine.getCapacity());
 		System.out.print("Input the value of coins to insert (separated by space). ");
 		System.out.println("Enter a blank line to quit.");
+		
 		do {
 			System.out.print("Values of coins to insert: ");
 			String reply = console.nextLine().trim();
@@ -28,7 +28,8 @@ public class Demo {
 				else {
 					Coin coin = new Coin(value);
 					if ( machine.insert( coin ) ) {
-						System.out.println(coin+" inserted");
+						System.out.println(coin+" inserted\n");
+						
 					} else {
 						System.out.println("Insert "+coin+" FAILED.");
 					}
@@ -60,9 +61,12 @@ public class Demo {
 		final int capacity = 10;  // how many coins the machine can hold
 		
 		CoinMachine machine = new CoinMachine( capacity );
-		Demo demo = new Demo();
+		Demo demo = new Demo();		
+		MachineObservers observed = new MachineObservers();
+		machine.addObserver(observed);
 		//TODO add observers
 		demo.insertDialog(machine);
+		
 	}
 }
 

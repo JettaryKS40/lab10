@@ -2,7 +2,7 @@ package coinmachine;
 /**
  * A Coin represents metalic money with a value.
  */
-public class Coin /*TODO implements Comparable<Coin> */ {
+public class Coin implements Comparable<Coin> {
 	/** value of the coin */
 	private final int value;
 	private final String currency;
@@ -63,14 +63,26 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	public boolean equals(Object obj) {
 //TODO Write a correct equals method for Coin.
 //     You can assume that the currency is never null.
-		return this == obj;
+		
+		if(obj instanceof Coin) {
+			return this.value == ((Coin)obj).getValue() && this.currency.equals(((Coin)obj).getCurrency());
+		}
+		
+		else return false;
 	}
 
 	/**
 	 * @see java.lang.Object#toString()
 	 */
+	
 	@Override
 	public String toString() {
 		return value+"-"+currency;
+	}
+
+	@Override
+	public int compareTo(Coin arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
