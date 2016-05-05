@@ -8,7 +8,16 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
+/** This class check if the coin has been add to the MachineGUI
+ *  and notify user by display how many coin has been add.
+ * 
+ *  @author Keetawat Srichompoo - 5810545840
+ *
+ */
+
 public class GUIChecker {
+	
+	// Main class that run a program and observer
 	
 	public static void main(String[] args) {
 		
@@ -23,7 +32,13 @@ public class GUIChecker {
 	}
 }
 
+/** This is a GUI panel for checking if the coin has been add
+ *  by the user.
+ */
+
 class MainCheck implements Observer {
+	
+	//instance variables
 	
 	private JFrame frame = new JFrame() ;
 	
@@ -40,7 +55,10 @@ class MainCheck implements Observer {
 		
 	}
 	
+	
 	private void initComponents () {
+		
+		//set the layout panel
 		
 		frame.setLayout( new GridLayout( 3, 0 ) ) ;
 		
@@ -53,12 +71,17 @@ class MainCheck implements Observer {
 		frame.add(contents) ;
 		frame.add(contents2) ;
 		
+		//set color font
+		
 		Color darkGreen = new Color( 20, 200, 20 ) ;
 		textAccept.setForeground(darkGreen) ;
 		
+		//add all components to the frame
 		contents.add(coinCountText) ;
 		contents.add(countTextField) ;
 		contents2.add(textAccept) ;
+		
+		//adjust the program display size
 		
 		frame.pack() ;
 	}

@@ -1,0 +1,27 @@
+lab10 review:
+
+equals(object obj) {
+	if( //instance of// )
+	if( obj == null ) false
+	if( // getclass() // )
+}
+
+don't make to much ()
+
+just declare an object in it.
+
+	compare 2 String use .equals() not ==
+
+
+avoid nested if()
+avoid redundant casting()
+
+
+
+JavaDoc
+
+/** should discribe what it does and dont forget @author
+
+for a strong immuable obj : using clone()	string is immutable itself
+List and Array are Mutable
+return into a unmodifiableList();
