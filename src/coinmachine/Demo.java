@@ -61,9 +61,19 @@ public class Demo {
 		final int capacity = 10;  // how many coins the machine can hold
 		
 		CoinMachine machine = new CoinMachine( capacity );
-		Demo demo = new Demo();		
-		MachineObservers observed = new MachineObservers();
+		
+		MainCheck acceptingGUI = new MainCheck();
+		MachineGUI machineUI = new MachineGUI(machine);
+		MachineObserver observed = new MachineObserver();
+		Demo demo = new Demo();	
+
+		machine.addObserver(acceptingGUI);
+		machine.addObserver(machineUI);
 		machine.addObserver(observed);
+		
+		acceptingGUI.run();
+		machineUI.run();
+
 		//TODO add observers
 		demo.insertDialog(machine);
 		

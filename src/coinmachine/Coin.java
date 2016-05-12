@@ -15,7 +15,7 @@ public class Coin implements Comparable<Coin> {
 	public Coin(int value) {
 		this(value, "Baht");
 	}
-	
+
 	public Coin(int value, String currency) {
 		assert value > 0;  // if not, its YOUR fault
 		if (currency == null) throw new IllegalArgumentException("currency cannot be null");
@@ -29,13 +29,13 @@ public class Coin implements Comparable<Coin> {
 	public int getValue() {
 		return value;
 	}
-	
+
 	/**
 	 * Get the coin's currency.
 	 * @return the currency of this coin.
 	 */
 	public String getCurrency() { return currency; }
-	
+
 
 	/**
 	 * Hashcode is used by collections like HashSet and HashMap.
@@ -54,27 +54,35 @@ public class Coin implements Comparable<Coin> {
 		return result;
 	}
 
-	/**
-	 * Two coins are equal if they have the same currency and value.
-	 * @param obj an Object to compare to this coin.
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
+	//	/**
+	//	 * Two coins are equal if they have the same currency and value.
+	//	 * @param obj an Object to compare to this coin.
+	//	 * @see java.lang.Object#equals(java.lang.Object)
+	//	 */
+	//	@Override
+	//	public boolean equals(Object obj) {
+	//		//TODO Write a correct equals method for Coin.
+	//		//     You can assume that the currency is never null.
+	//
+	//		if(obj instanceof Coin) {
+	//			return this.value == ((Coin)obj).getValue() && this.currency.equals(((Coin)obj).getCurrency());
+	//		}
+	//
+	//		else return false;
+	//	}
+
 	@Override
 	public boolean equals(Object obj) {
-//TODO Write a correct equals method for Coin.
-//     You can assume that the currency is never null.
-		
-		if(obj instanceof Coin) {
-			return this.value == ((Coin)obj).getValue() && this.currency.equals(((Coin)obj).getCurrency());
-		}
-		
-		else return false;
+		//TODO Write a correct equals method for Coin.
+		//     You can assume that the currency is never null.
+		if (obj == null) return false;
+		return this.toString().equals(obj.toString());
 	}
 
 	/**
 	 * @see java.lang.Object#toString()
 	 */
-	
+
 	@Override
 	public String toString() {
 		return value+"-"+currency;
